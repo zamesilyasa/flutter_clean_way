@@ -1,0 +1,13 @@
+name: 'data'
+
+version: 1.0.0+1
+description: "data layer"
+publish_to: none
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  domain:
+    path: ../domain
+
+  uuid: ">=3.0.5"

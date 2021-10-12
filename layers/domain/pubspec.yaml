@@ -1,0 +1,13 @@
+name: 'domain'
+
+version: 1.0.0+1
+description: "Project domain layer"
+publish_to: 'none'
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+# We don't include flutter to the domain layer because it shouldn't depend on the
+# framework. It should be written on clean dart language using only pure dart libs
+# with null safety support
+dependencies:
+  equatable: ">=2.0.3"
