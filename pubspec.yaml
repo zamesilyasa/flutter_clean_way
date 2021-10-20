@@ -7,17 +7,25 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  get_it: ^7.2.0
+
   flutter:
     sdk: flutter
 
-  data:
-    path: ./layers/data
+  web_gateway:
+    path: ./layers/web_gateway
+
+  mobile_gateway:
+    path: ./layers/mobile_gateway
 
   domain:
     path: ./layers/domain
 
-  presentation:
-    path: ./layers/presentation
+  mobile_presentation:
+    path: ./layers/mobile_presentation
+
+  web_presentation:
+    path: ./layers/web_presentation
 
 flutter:
   uses-material-design: true

@@ -2,7 +2,7 @@ import '../../entity.dart';
 import '../../repository.dart';
 
 class AddUserUseCase {
-  final UserRepository _userRepository;
+  final UserGateway _userRepository;
 
   AddUserUseCase(this._userRepository);
 
@@ -12,7 +12,7 @@ class AddUserUseCase {
 }
 
 class DeleteUserUseCase {
-  final UserRepository _userRepository;
+  final UserGateway _userRepository;
 
   DeleteUserUseCase(this._userRepository);
 
@@ -22,7 +22,7 @@ class DeleteUserUseCase {
 }
 
 class UpdateUserUseCase {
-  final UserRepository _userRepository;
+  final UserGateway _userRepository;
 
   UpdateUserUseCase(this._userRepository);
 

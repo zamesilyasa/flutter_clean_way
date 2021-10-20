@@ -1,7 +1,9 @@
-layers/flutter_misc/pubspec.lock
-layers/data/pubspec.lock
+layers/web_gateway/pubspec.lock
+layers/mobile_gateway/pubspec.lock
 layers/domain/pubspec.lock
-layers/presentation/pubspec.lock
+layers/mobile_presentation/pubspec.lock
+layers/web_presentation/pubspec.lock
+layers/generic_blocs/pubspec.lock
 
 # Miscellaneous
 *.class

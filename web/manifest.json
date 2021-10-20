@@ -1,6 +1,6 @@
 {
-    "name": "getit_bloc",
-    "short_name": "getit_bloc",
+    "name": "CleanSample",
+    "short_name": "cleanapp",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

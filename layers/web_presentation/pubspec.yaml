@@ -1,0 +1,30 @@
+name: web_presentation
+
+version: 1.0.0+1
+description: "presentation layer"
+publish_to: 'none'
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  domain:
+    path: ../domain
+
+  generic_blocs:
+    path: ../generic_blocs
+
+  cupertino_icons: ^1.0.2
+
+  bloc: ^7.2.1
+  flutter_bloc: ^7.3.0
+  get_it: ^7.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
