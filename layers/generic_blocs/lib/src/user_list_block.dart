@@ -7,12 +7,9 @@ class UsersListBloc extends Cubit<UsersState> {
   UsersListBloc(this.userGateway) : super(UsersIdle());
 
   Future<void> loadUsers() async {
-    print("Loading users");
     emit(UsersLoading());
     final stream = await userGateway.getUsers();
-    print("Listening for stream");
     await for (final users in stream) {
-      print("Stream result $users");
       emit(UsersLoaded(users));
     }
   }
