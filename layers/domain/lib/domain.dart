@@ -1,3 +1,3 @@
 export 'entity.dart';
-export 'repository.dart';
+export 'gateway.dart';
 export 'usecase.dart';

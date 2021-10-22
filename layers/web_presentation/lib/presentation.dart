@@ -1,1 +1,1 @@
-export 'src/web_application.dart';
+export 'src/web_application.dart' show WebApplication;

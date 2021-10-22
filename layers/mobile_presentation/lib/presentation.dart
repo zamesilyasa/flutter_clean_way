@@ -1,1 +1,1 @@
-export 'src/application.dart';
+export 'src/application.dart' show MobileApplication;

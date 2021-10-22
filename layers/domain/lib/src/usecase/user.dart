@@ -1,32 +1,32 @@
 import '../../entity.dart';
-import '../../repository.dart';
+import '../../gateway.dart';
 
 class AddUserUseCase {
-  final UserGateway _userRepository;
+  final UserGateway _userGateway;
 
-  AddUserUseCase(this._userRepository);
+  AddUserUseCase(this._userGateway);
 
   Future<void> call(User user) async {
-    _userRepository.addUser(user);
+    _userGateway.addUser(user);
   }
 }
 
 class DeleteUserUseCase {
-  final UserGateway _userRepository;
+  final UserGateway _userGateway;
 
-  DeleteUserUseCase(this._userRepository);
+  DeleteUserUseCase(this._userGateway);
 
   Future<void> call(User user) async {
-    _userRepository.deleteUser(user);
+    _userGateway.deleteUser(user);
   }
 }
 
 class UpdateUserUseCase {
-  final UserGateway _userRepository;
+  final UserGateway _userGateway;
 
-  UpdateUserUseCase(this._userRepository);
+  UpdateUserUseCase(this._userGateway);
 
   Future<void> call(User user) async {
-    _userRepository.updateUser(user);
+    _userGateway.updateUser(user);
   }
 }

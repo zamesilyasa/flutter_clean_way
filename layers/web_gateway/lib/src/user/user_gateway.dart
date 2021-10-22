@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:domain/entity.dart';
-import 'package:domain/repository.dart';
+import 'package:domain/gateway.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:uuid/uuid.dart';
 

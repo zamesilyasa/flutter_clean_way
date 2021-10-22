@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:domain/entity.dart';
-import 'package:domain/repository.dart';
+import 'package:domain/gateway.dart';
 import 'package:mobile_gateway/src/database.dart' as db show User;
 import 'package:rxdart/rxdart.dart';
 import 'package:sqflite/sqflite.dart';

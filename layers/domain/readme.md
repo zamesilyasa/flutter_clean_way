@@ -1,6 +1,6 @@
 ### Domain layer
 
-Domain layer includes definitions of all the use cases, entities and repository
+Domain layer includes definitions of all the use cases, entities and gateways
 interfaces. The implementations of the repositories depend on platforms.
 
 The top level application is responsible for particular implementation instantiations
@@ -16,7 +16,7 @@ class User {
   User(this.name);
 }
 
-abstract class UserRepository {
+abstract class UserGateway {
   List<User> getUsers();
   User addUser(User user);
 }
@@ -24,10 +24,8 @@ abstract class UserRepository {
 
 ***************** data layer *****************
 
-class DataUserRepository extends UserRepository {
+class DataUserGateway extends UserGateway {
   override List<User> getUsers() {
   }
   User addUser(User user);
 }
-
-
