@@ -29,5 +29,9 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+test_dependencies:
+  domain:
+    path: ../mobile_gateway
+
 flutter:
   uses-material-design: true

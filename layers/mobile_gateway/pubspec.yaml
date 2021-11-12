@@ -15,3 +15,12 @@ dependencies:
     path: ../domain
 
   uuid: ">=3.0.5"
+
+dev_dependencies:
+  test: ^1.19.3
+  # We use this dependency to be able to run the db tests on desktops
+  # see https://pub.dev/packages/sqflite_common_ffi#unit-test-code
+  sqflite_common_ffi: any
+
+flutter:
+  uses-material-design: true

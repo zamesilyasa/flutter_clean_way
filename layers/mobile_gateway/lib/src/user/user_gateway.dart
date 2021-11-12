@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:domain/entity.dart';
 import 'package:domain/gateway.dart';
-import 'package:mobile_gateway/src/database.dart' as db show User;
+import 'package:mobile_gateway/src/database.dart' as db show UserTable;
 import 'package:rxdart/rxdart.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:uuid/uuid.dart';
@@ -17,10 +17,10 @@ class MobileUserGateway extends UserGateway {
   Future<void> addUser(User user) async {
     print("Adding user $user");
     final id = Uuid();
-    await (await _db).insert(db.User.tableName, {
-      db.User.firstName: user.firstName,
-      db.User.lastName: user.lastName,
-      db.User.email: user.email,
+    await (await _db).insert(db.UserTable.tableName, {
+      db.UserTable.firstName: user.firstName,
+      db.UserTable.lastName: user.lastName,
+      db.UserTable.email: user.email,
     });
 
     _syncStream();
@@ -28,16 +28,16 @@ class MobileUserGateway extends UserGateway {
 
   @override
   Future<void> deleteUser(User user) async {
-    await (await _db).delete(db.User.tableName, where: "${db.User.id} == ${user.id}");
+    await (await _db).delete(db.UserTable.tableName, where: "${db.UserTable.id} == ${user.id}");
     _syncStream();
   }
 
   @override
   Future<void> updateUser(User user) async {
-    await (await _db).update(db.User.tableName, {
-      db.User.firstName: user.firstName,
-      db.User.lastName: user.lastName,
-      db.User.email: user.email,
+    await (await _db).update(db.UserTable.tableName, {
+      db.UserTable.firstName: user.firstName,
+      db.UserTable.lastName: user.lastName,
+      db.UserTable.email: user.email,
     });
     _syncStream();
   }
@@ -49,13 +49,13 @@ class MobileUserGateway extends UserGateway {
   }
 
   Future<void> _syncStream() async {
-    final result = await (await _db).query(db.User.tableName);
+    final result = await (await _db).query(db.UserTable.tableName);
     final users = result.map<User>((it) {
       return User(
-        it[db.User.id],
-        it[db.User.firstName] as String,
-        it[db.User.lastName] as String,
-        it[db.User.email] as String,
+        it[db.UserTable.id],
+        it[db.UserTable.firstName] as String,
+        it[db.UserTable.lastName] as String,
+        it[db.UserTable.email] as String,
       );
     }).toList();
 
