@@ -1,5 +1,8 @@
 import 'package:sqflite/sqflite.dart';
 
+typedef CursorItem = Map<String, Object?>;
+typedef Cursor = List<CursorItem>;
+
 class UserTable {
   static final String tableName = "user";
   static final String id = "id";
@@ -11,10 +14,10 @@ class UserTable {
 
   static Future<void> create(Database db) async {
     db.execute('CREATE TABLE IF NOT EXISTS $tableName('
-        '$id INTEGER PRIMARY KEY AUTOINCREMENT, '
-        '$firstName TEXT, '
-        '$lastName TEXT, '
-        '$email TEXT '
+        '$id INTEGER PRIMARY KEY AUTOINCREMENT,'
+        '$firstName TEXT,'
+        '$lastName TEXT,'
+        '$email TEXT'
         ')');
   }
 }

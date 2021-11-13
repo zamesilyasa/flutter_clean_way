@@ -94,7 +94,7 @@ class MainScreen extends StatelessWidget {
               DataCell(Text(user.email)),
               DataCell(Text(user.firstName)),
               DataCell(Text(user.lastName)),
-              DataCell(Text(user.id)),
+              DataCell(Text(user.id ?? "N/A")),
               DataCell(IconButton(
                 icon: Icon(Icons.delete),
                 onPressed: () {

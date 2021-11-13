@@ -44,4 +44,9 @@ class WebUserGateway extends UserGateway {
   void close() {
     _stream.close();
   }
+
+  @override
+  Future<User?> getUserById(String id) async {
+    return _users[id];
+  }
 }

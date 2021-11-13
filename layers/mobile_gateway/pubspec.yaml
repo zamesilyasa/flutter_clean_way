@@ -4,9 +4,14 @@ version: 1.0.0+1
 description: "data layer"
 publish_to: none
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.14.0 <3.0.0"
 
 dependencies:
+  # Test framework fails to run tests which import sqflite packages without explicit flutter dependency
+  # If you don't use sqflite in tests or you use a different database, just remove this dependency
+  flutter:
+    sdk: flutter
+
   get_it: ^7.2.0
   rxdart: ^0.27.2
   sqflite: ^2.0.0+4

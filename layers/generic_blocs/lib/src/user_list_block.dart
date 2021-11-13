@@ -15,7 +15,7 @@ class UsersListBloc extends Cubit<UsersState> {
   }
 
   Future<void> addUser(String firstName, String lastName, String email) async {
-    userGateway.addUser(User(null, firstName, lastName, email));
+    userGateway.addUser(User(firstName, lastName, email));
   }
 
   Future<void> deleteUser(User user) async {

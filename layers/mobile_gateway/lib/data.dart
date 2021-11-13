@@ -11,5 +11,6 @@ import 'src/database.dart';
 /// gateways to the provided getIt instance.
 void injectGateways(GetIt getIt) {
   getIt.registerSingleton<Future<Database>>(initDatabase());
-  getIt.registerSingleton<UserGateway>(MobileUserGateway(getIt.get()));
+  getIt.registerSingleton<CursorItemToUserMapper>(CursorItemToUserMapper());
+  getIt.registerSingleton<UserGateway>(MobileUserGateway(getIt(), getIt()));
 }
