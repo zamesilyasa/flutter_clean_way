@@ -6,6 +6,8 @@ import 'package:provider/provider.dart';
 import 'package:web_presentation/src/screens/add_user/add_user.dart';
 
 class MainScreen extends StatelessWidget {
+  const MainScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,12 +23,12 @@ class MainScreen extends StatelessWidget {
           BlocBuilder<UsersListBloc, UsersState>(
             builder: (context, state) {
               if (state is UsersLoading) {
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               } else if (state is UsersIdle) {
                 context.read<UsersListBloc>().loadUsers();
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               } else if (state is UsersLoaded) {
@@ -35,7 +37,7 @@ class MainScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("The list is empty"),
+                        const Text("The list is empty"),
                         Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: ElevatedButton(
@@ -69,7 +71,7 @@ class MainScreen extends StatelessWidget {
                               .textTheme
                               .subtitle1!
                               .copyWith(fontWeight: FontWeight.bold),)),
-                          DataColumn(label: Text("")),
+                          const DataColumn(label: Text("")),
                         ],
                         rows: createTableRows(state.users, context),
                       ),
@@ -77,7 +79,7 @@ class MainScreen extends StatelessWidget {
                   );
                 }
               } else {
-                return Center(
+                return const Center(
                   child: Text("Users loading error"),
                 );
               }
@@ -96,7 +98,7 @@ class MainScreen extends StatelessWidget {
               DataCell(Text(user.lastName)),
               DataCell(Text(user.id ?? "N/A")),
               DataCell(IconButton(
-                icon: Icon(Icons.delete),
+                icon: const Icon(Icons.delete),
                 onPressed: () {
                   context.read<UsersListBloc>().deleteUser(user);
                 },
@@ -105,10 +107,10 @@ class MainScreen extends StatelessWidget {
         .toList();
 
     rows.add(DataRow(cells: [
-      DataCell(SizedBox()),
-      DataCell(SizedBox()),
-      DataCell(SizedBox()),
-      DataCell(SizedBox()),
+      const DataCell(SizedBox()),
+      const DataCell(SizedBox()),
+      const DataCell(SizedBox()),
+      const DataCell(SizedBox()),
       DataCell(ElevatedButton(
           onPressed: () => showAddUserPage(context),
           child: const Text("add user")))
@@ -121,7 +123,7 @@ class MainScreen extends StatelessWidget {
     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
       showDialog(
         context: context,
-        builder: (context) => AddUserPage()
+        builder: (context) => const AddUserPage()
       );
     });
   }

@@ -11,3 +11,6 @@ dependencies:
 
   domain:
     path: ../domain
+
+dev_dependencies:
+  lints: 1.0.1

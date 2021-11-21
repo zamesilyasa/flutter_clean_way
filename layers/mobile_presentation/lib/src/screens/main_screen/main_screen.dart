@@ -7,6 +7,8 @@ import 'package:mobile_presentation/src/screens/add_user/add_user.dart';
 import 'package:mobile_presentation/src/storage/settings_storage.dart';
 
 class MainScreen extends StatelessWidget {
+  const MainScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,12 +17,12 @@ class MainScreen extends StatelessWidget {
         child: BlocBuilder<UsersListBloc, UsersState>(
           builder: (context, state) {
             if (state is UsersLoading) {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             } else if (state is UsersIdle) {
               context.read<UsersListBloc>().loadUsers();
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             } else if (state is UsersLoaded) {
@@ -29,14 +31,14 @@ class MainScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("The list is empty"),
+                      const Text("The list is empty"),
                       MaterialButton(
                         onPressed: () =>
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => AddUserPage())),
-                        child: Text("Add user"),
+                                    builder: (context) => const AddUserPage())),
+                        child: const Text("Add user"),
                       )
                     ],
                   ),
@@ -49,7 +51,7 @@ class MainScreen extends StatelessWidget {
                 );
               }
             } else {
-              return Center(
+              return const Center(
                 child: Text("Users loading error"),
               );
             }
@@ -67,7 +69,7 @@ class MainScreen extends StatelessWidget {
                 onPressed: () =>
                     Navigator.push(context,
                         MaterialPageRoute(
-                            builder: (context) => AddUserPage()))),
+                            builder: (context) => const AddUserPage()))),
           ),
           BlocBuilder<SettingsBloc, SettingsState>(
             builder: (context, settingsState) {
@@ -78,14 +80,14 @@ class MainScreen extends StatelessWidget {
                     child: const Icon(Icons.brightness_6),
                     onPressed: () {
                       if (settingsState.settings.currentTheme ==
-                          CurrentTheme.NIGHT) {
+                          CurrentTheme.night) {
                         context.read<SettingsBloc>().updateSettings(
                             settingsState.settings.copyWith(
-                                currentTheme: CurrentTheme.DAY));
+                                currentTheme: CurrentTheme.day));
                       } else {
                         context.read<SettingsBloc>().updateSettings(
                             settingsState.settings.copyWith(
-                                currentTheme: CurrentTheme.NIGHT));
+                                currentTheme: CurrentTheme.night));
                       }
                     },
                   ),
@@ -104,7 +106,7 @@ class MainScreen extends StatelessWidget {
 class _UserListItem extends StatelessWidget {
   final User _user;
 
-  _UserListItem(this._user);
+  const _UserListItem(this._user);
 
   @override
   Widget build(BuildContext context) {
@@ -121,7 +123,7 @@ class _UserListItem extends StatelessWidget {
         onPressed: () {
           context.read<UsersListBloc>().deleteUser(_user);
         },
-        icon: Icon(Icons.delete),
+        icon: const Icon(Icons.delete),
       ),
     );
   }

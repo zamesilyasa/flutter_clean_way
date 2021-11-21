@@ -15,7 +15,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class MobileApplication extends StatelessWidget {
   final GetIt _getIt;
 
-  MobileApplication(GetIt getIt) : _getIt = getIt {
+  MobileApplication(GetIt getIt, {Key? key}) : _getIt = getIt, super(key: key) {
     getIt.registerSingleton(SharedPreferences.getInstance());
     getIt.registerSingleton(SettingsStorage(_getIt()));
   }
@@ -35,7 +35,7 @@ class MobileApplication extends StatelessWidget {
             if (settingsState is SettingsLoaded) {
               return MaterialApp(
                 theme: AppTheme.fromSettings(settingsState.settings),
-                home: MainScreen(),
+                home: const MainScreen(),
               );
             } else {
               return Container();
@@ -65,7 +65,7 @@ class AppTheme {
   );
 
   static ThemeData fromSettings(Settings settings) {
-    if (settings.currentTheme == CurrentTheme.NIGHT) {
+    if (settings.currentTheme == CurrentTheme.night) {
       return AppTheme.themeDark;
     } else {
       return AppTheme.themeLight;
@@ -79,10 +79,10 @@ class SingletonBlocsProvider extends StatelessWidget {
   final GetIt getIt;
   final Widget child;
 
-  SingletonBlocsProvider({
+  const SingletonBlocsProvider({Key? key,
     required this.getIt,
     required this.child,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

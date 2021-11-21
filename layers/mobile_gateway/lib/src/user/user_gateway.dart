@@ -5,7 +5,6 @@ import 'package:domain/gateway.dart';
 import 'package:mobile_gateway/src/database.dart' as tables show UserTable;
 import 'package:rxdart/rxdart.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:uuid/uuid.dart';
 
 import '../database.dart';
 
@@ -21,7 +20,6 @@ class MobileUserGateway extends UserGateway {
 
   @override
   Future<User> addUser(User user) async {
-    print("Adding user $user");
     final id = await (await _db).insert(tables.UserTable.tableName, {
       tables.UserTable.firstName: user.firstName,
       tables.UserTable.lastName: user.lastName,

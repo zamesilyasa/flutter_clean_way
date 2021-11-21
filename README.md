@@ -81,6 +81,20 @@ care about the streams because cubits provide the state automatically similar to
 The goal of this project is to create a prototype, which demonstrates how we can build an app using 
 clean architecture and BLoC pattern together.
 
+### Lints
+We use lints for dart packages and flutter_lints for flutter packages.
+If you want to run lints for a specific package, cd to the project
+folder and run `flutter analyze` or `dart analyze`.
+
+If you need to run the linters for the whole project, cd to the root folder
+and run `flutter analyze`, it will run the analyzers for all the dart and
+flutter subprojects. IDEs detect the lint and flutter_lints dependencies
+automatically and highlight the problems
+
+It's also recommended to add `flutter analyze` to your
+`.git/hooks/pre-commit` file, which will run the analysis before any
+commit.
+
 ### Tests
 Different projects require different test approaches. Some projects have only unit tests,
 some projects have integration tests and UI tests. Clean architecture helps us a lot with tests,

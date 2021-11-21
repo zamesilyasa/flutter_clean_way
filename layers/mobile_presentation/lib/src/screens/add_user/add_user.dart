@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:generic_blocs/generic_blocs.dart';
 
 class AddUserPage extends StatefulWidget {
+  const AddUserPage({Key? key}) : super(key: key);
+
   @override
   State<AddUserPage> createState() => _AddUserPageState();
 }
@@ -18,9 +20,9 @@ class _AddUserPageState extends State<AddUserPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: Key("Add user page"),
+      key: const Key("Add user page"),
       appBar: AppBar(
-        title: Text("Add new user"),
+        title: const Text("Add new user"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(64.0),
@@ -34,7 +36,7 @@ class _AddUserPageState extends State<AddUserPage> {
                     return "First name should not be empty";
                   }
                 },
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "First name",
                 ),
                 onChanged: (text) => _firstName = text,
@@ -45,7 +47,7 @@ class _AddUserPageState extends State<AddUserPage> {
                     return "Last name should not be empty";
                   }
                 },
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "Last name",
                 ),
                 onChanged: (text) => _lastName = text,
@@ -56,7 +58,7 @@ class _AddUserPageState extends State<AddUserPage> {
                     return "Doesn't look like email address";
                   }
                 },
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "Email address",
                 ),
                 onChanged: (text) => _email = text,

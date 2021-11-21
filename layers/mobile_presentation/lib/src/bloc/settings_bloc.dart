@@ -3,7 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:mobile_presentation/src/storage/settings_storage.dart';
 
 class SettingsBloc extends Cubit<SettingsState> {
-  SettingsStorage _settingsStorage;
+  final SettingsStorage _settingsStorage;
 
   SettingsBloc(this._settingsStorage) : super(SettingsLoading()) {
     _loadSettings();

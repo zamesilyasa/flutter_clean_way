@@ -4,9 +4,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsStorage {
 
-  Future<SharedPreferences> _sharedPreferences;
+  final Future<SharedPreferences> _sharedPreferences;
   final _settings = BehaviorSubject<Settings>();
-  final _defaultTheme = CurrentTheme.DAY;
+  final _defaultTheme = CurrentTheme.day;
 
   SettingsStorage(this._sharedPreferences) {
     _readTheme();
@@ -49,10 +49,10 @@ class Settings {
   Settings(this.currentTheme);
 
   Settings copyWith({CurrentTheme? currentTheme}) {
-    return Settings(currentTheme != null ? currentTheme : this.currentTheme);
+    return Settings(currentTheme ?? this.currentTheme);
   }
 }
 
 enum CurrentTheme {
-  DAY, NIGHT,
+  day, night,
 }

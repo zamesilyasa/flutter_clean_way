@@ -26,6 +26,7 @@ dev_dependencies:
   # We use this dependency to be able to run the db tests on desktops
   # see https://pub.dev/packages/sqflite_common_ffi#unit-test-code
   sqflite_common_ffi: any
+  lints: 1.0.1
 
 flutter:
   uses-material-design: true

@@ -8,24 +8,22 @@ environment:
 
 dependencies:
   get_it: ^7.2.0
-
   flutter:
     sdk: flutter
 
   web_gateway:
     path: ./layers/web_gateway
-
   mobile_gateway:
     path: ./layers/mobile_gateway
-
   domain:
     path: ./layers/domain
-
   mobile_presentation:
     path: ./layers/mobile_presentation
-
   web_presentation:
     path: ./layers/web_presentation
+
+dev_dependencies:
+  flutter_lints: 1.0.4
 
 flutter:
   uses-material-design: true

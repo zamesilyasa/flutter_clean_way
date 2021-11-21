@@ -8,19 +8,20 @@ import 'package:web_presentation/src/screens/main_screen/main_screen.dart';
 class WebApplication extends StatelessWidget {
   final GetIt _getIt;
 
-  WebApplication(GetIt getIt) : _getIt = getIt;
+  const WebApplication(GetIt getIt, {Key? key})
+      : _getIt = getIt,
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Provider<GetIt>(
-      create: (context) => _getIt,
-      child: SingletonBlocsProvider(
-        getIt: _getIt,
-        child: MaterialApp(
-          home: MainScreen(),
-        ),
-      )
-    );
+        create: (context) => _getIt,
+        child: SingletonBlocsProvider(
+          getIt: _getIt,
+          child: const MaterialApp(
+            home: MainScreen(),
+          ),
+        ));
   }
 }
 
@@ -28,10 +29,10 @@ class SingletonBlocsProvider extends StatelessWidget {
   final GetIt getIt;
   final Widget child;
 
-  SingletonBlocsProvider({
+  const SingletonBlocsProvider({Key? key,
     required this.getIt,
     required this.child,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
