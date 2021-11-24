@@ -1,0 +1,8 @@
+{
+    "@@locale": "ru",
+    "addUser": "Добавить Пользователя",
+    "@addUser": {
+        "type": "text",
+        "source_text": "addUser"
+    }
+}

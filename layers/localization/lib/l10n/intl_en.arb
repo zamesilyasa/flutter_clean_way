@@ -1,0 +1,8 @@
+{
+    "@@locale": "en",
+    "addUser": "Add User",
+    "@addUser": {
+        "type": "text",
+        "source_text": "addUser"
+    }
+}
