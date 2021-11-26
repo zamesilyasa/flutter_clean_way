@@ -7,6 +7,7 @@ import 'package:mobile_presentation/src/storage/settings_storage.dart';
 import 'package:provider/provider.dart';
 import 'package:generic_blocs/generic_blocs.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:localization/localization.dart';
 
 /// This class contains only the code related to the whole application.
 /// It shouldn't contain any code related to particular screens, it only
@@ -15,7 +16,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 class MobileApplication extends StatelessWidget {
   final GetIt _getIt;
 
-  MobileApplication(GetIt getIt, {Key? key}) : _getIt = getIt, super(key: key) {
+  MobileApplication(GetIt getIt, {Key? key})
+      : _getIt = getIt,
+        super(key: key) {
     getIt.registerSingleton(SharedPreferences.getInstance());
     getIt.registerSingleton(SettingsStorage(_getIt()));
   }
@@ -34,6 +37,8 @@ class MobileApplication extends StatelessWidget {
           builder: (context, settingsState) {
             if (settingsState is SettingsLoaded) {
               return MaterialApp(
+                localizationsDelegates: Localization.localizationsDelegates,
+                supportedLocales: Localization.supportedLocales,
                 theme: AppTheme.fromSettings(settingsState.settings),
                 home: const MainScreen(),
               );
@@ -79,7 +84,8 @@ class SingletonBlocsProvider extends StatelessWidget {
   final GetIt getIt;
   final Widget child;
 
-  const SingletonBlocsProvider({Key? key,
+  const SingletonBlocsProvider({
+    Key? key,
     required this.getIt,
     required this.child,
   }) : super(key: key);

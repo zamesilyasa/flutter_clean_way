@@ -2,6 +2,7 @@ import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:generic_blocs/generic_blocs.dart';
+import 'package:localization/localization.dart';
 import 'package:mobile_presentation/src/bloc/settings_bloc.dart';
 import 'package:mobile_presentation/src/screens/add_user/add_user.dart';
 import 'package:mobile_presentation/src/storage/settings_storage.dart';
@@ -33,12 +34,11 @@ class MainScreen extends StatelessWidget {
                     children: [
                       const Text("The list is empty"),
                       MaterialButton(
-                        onPressed: () =>
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const AddUserPage())),
-                        child: const Text("Add user"),
+                        onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AddUserPage())),
+                        child: Text(AppStrings.of(context).addUser),
                       )
                     ],
                   ),
@@ -66,10 +66,10 @@ class MainScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 5.0),
             child: FloatingActionButton(
                 child: const Icon(Icons.add),
-                onPressed: () =>
-                    Navigator.push(context,
-                        MaterialPageRoute(
-                            builder: (context) => const AddUserPage()))),
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const AddUserPage()))),
           ),
           BlocBuilder<SettingsBloc, SettingsState>(
             builder: (context, settingsState) {
@@ -82,12 +82,12 @@ class MainScreen extends StatelessWidget {
                       if (settingsState.settings.currentTheme ==
                           CurrentTheme.night) {
                         context.read<SettingsBloc>().updateSettings(
-                            settingsState.settings.copyWith(
-                                currentTheme: CurrentTheme.day));
+                            settingsState.settings
+                                .copyWith(currentTheme: CurrentTheme.day));
                       } else {
                         context.read<SettingsBloc>().updateSettings(
-                            settingsState.settings.copyWith(
-                                currentTheme: CurrentTheme.night));
+                            settingsState.settings
+                                .copyWith(currentTheme: CurrentTheme.night));
                       }
                     },
                   ),
@@ -112,10 +112,7 @@ class _UserListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text("User ${_user.id}",
-          style: Theme
-              .of(context)
-              .textTheme
-              .headline5),
+          style: Theme.of(context).textTheme.headline5),
       subtitle: Text(
         "${_user.firstName} ${_user.lastName}",
       ),
