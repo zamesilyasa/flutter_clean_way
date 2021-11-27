@@ -1,0 +1,26 @@
+#!/bin/bash
+
+ROOT=$(pwd)
+command="$1 $2 $3 $4 $5 $6 $7"
+
+projects=(
+  "layers/domain"
+  "layers/localization"
+  "layers/mobile_gateway"
+  "layers/web_gateway"
+  "layers/mobile_presentation"
+  "layers/web_presentation"
+  "."
+)
+
+groupOperation() {
+  for project in ${projects[*]}
+  do
+      cd  "$project" || exit
+      echo "running $1 in $project"
+      $1 > /dev/null || exit
+      cd "$ROOT" || exit
+  done
+}
+
+groupOperation "$command"

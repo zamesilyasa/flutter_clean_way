@@ -104,6 +104,14 @@ testing module depends on. It's also required to be easy to use TDD, ATDD, BDD a
 approaches, and it's quite easy to apply them in the projects, because every single piece of 
 logic or blocks of logic can be easily isolated. 
 
+### Tools
+Flutter/dart tools work only for the current project so if you run `flutter clean` command
+it runs only for the project in the current directory. 
+To run commands like `pub get` or `flutter clean` use ci script, which runs the given command for
+all the projects one by one:
+
+`./ci flutter clean`
+
 ### Structure
 We have an application, which sets up the build processes, environments, and dependencies for the 
 internal modules. It doesn't have any code related to the app functionality, it only set's up the
