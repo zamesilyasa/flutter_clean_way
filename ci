@@ -6,6 +6,7 @@ dart_projects=(
   "layers/domain"
   "layers/mobile_gateway"
   "layers/web_gateway"
+  "layers/generic_blocs"
 )
 flutter_projects=(
   "layers/localization"
