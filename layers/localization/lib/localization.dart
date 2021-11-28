@@ -11,8 +11,8 @@ class Localization {
     GlobalMaterialLocalizations.delegate,
     GlobalWidgetsLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
-    AppStrings.delegate,
+    Strings.delegate,
   ];
 
-  static final supportedLocales = AppStrings.delegate.supportedLocales;
+  static final supportedLocales = Strings.delegate.supportedLocales;
 }

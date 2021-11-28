@@ -22,6 +22,22 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "addUser": MessageLookupByLibrary.simpleMessage("Add User")
+        "addNewUser": MessageLookupByLibrary.simpleMessage("Add new user"),
+        "addUser": MessageLookupByLibrary.simpleMessage("Add User"),
+        "emailAddress": MessageLookupByLibrary.simpleMessage("Email address"),
+        "emailAddressFormatError": MessageLookupByLibrary.simpleMessage(
+            "Doesn\'t look like email address"),
+        "firstName": MessageLookupByLibrary.simpleMessage("First name"),
+        "firstNameShouldNotBeEmpty": MessageLookupByLibrary.simpleMessage(
+            "First name should not be empty"),
+        "lastName": MessageLookupByLibrary.simpleMessage("Last name"),
+        "lastNameShouldNotBeEmpty": MessageLookupByLibrary.simpleMessage(
+            "Last name should not be empty"),
+        "save": MessageLookupByLibrary.simpleMessage("Save"),
+        "usersListEmpty":
+            MessageLookupByLibrary.simpleMessage("The list is empty"),
+        "usersLoadingError":
+            MessageLookupByLibrary.simpleMessage("Users loading error"),
+        "usersTitle": MessageLookupByLibrary.simpleMessage("Users")
       };
 }

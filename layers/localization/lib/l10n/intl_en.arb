@@ -1,8 +1,15 @@
 {
     "@@locale": "en",
+    "usersTitle": "Users",
     "addUser": "Add User",
-    "@addUser": {
-        "type": "text",
-        "source_text": "addUser"
-    }
+    "usersListEmpty": "The list is empty",
+    "addNewUser": "Add new user",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "emailAddress": "Email address",
+    "save": "Save",
+    "emailAddressFormatError": "Doesn't look like email address",
+    "lastNameShouldNotBeEmpty": "Last name should not be empty",
+    "firstNameShouldNotBeEmpty": "First name should not be empty",
+    "usersLoadingError": "Users loading error"
 }

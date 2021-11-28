@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:localization/generated/l10n.dart';
 import 'package:provider/provider.dart';
 import 'package:generic_blocs/generic_blocs.dart';
 
@@ -22,7 +23,7 @@ class _AddUserPageState extends State<AddUserPage> {
     return Scaffold(
       key: const Key("Add user page"),
       appBar: AppBar(
-        title: const Text("Add new user"),
+        title: Text(Strings.of(context).addNewUser),
       ),
       body: Padding(
         padding: const EdgeInsets.all(64.0),
@@ -33,33 +34,33 @@ class _AddUserPageState extends State<AddUserPage> {
               TextFormField(
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return "First name should not be empty";
+                    return Strings.of(context).firstNameShouldNotBeEmpty;
                   }
                 },
-                decoration: const InputDecoration(
-                  labelText: "First name",
+                decoration: InputDecoration(
+                  labelText: Strings.of(context).firstName,
                 ),
                 onChanged: (text) => _firstName = text,
               ),
               TextFormField(
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return "Last name should not be empty";
+                    return Strings.of(context).lastNameShouldNotBeEmpty;
                   }
                 },
-                decoration: const InputDecoration(
-                  labelText: "Last name",
+                decoration: InputDecoration(
+                  labelText: Strings.of(context).lastName,
                 ),
                 onChanged: (text) => _lastName = text,
               ),
               TextFormField(
                 validator: (value) {
                   if (!value.isEmailAddress()) {
-                    return "Doesn't look like email address";
+                    return Strings.of(context).emailAddressFormatError;
                   }
                 },
-                decoration: const InputDecoration(
-                  labelText: "Email address",
+                decoration: InputDecoration(
+                  labelText: Strings.of(context).emailAddress,
                 ),
                 onChanged: (text) => _email = text,
               ),
@@ -77,7 +78,7 @@ class _AddUserPageState extends State<AddUserPage> {
                         Navigator.pop(context);
                       }
                     },
-                    child: const Text("SAVE")),
+                    child: Text(Strings.of(context).save)),
               )
             ],
           ),

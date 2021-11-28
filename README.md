@@ -87,11 +87,11 @@ If you want to run lints for a specific package, cd to the project
 folder and run `flutter analyze` or `dart analyze`.
 
 If you need to run the linters for the whole project, cd to the root folder
-and run `flutter analyze`, it will run the analyzers for all the dart and
-flutter subprojects. IDEs detect the lint and flutter_lints dependencies
-automatically and highlight the problems
+and run `./ci -d dart analyze && ./ci -f flutter analyze`, it will run the analyzers for 
+all the dart and flutter subprojects. IDEs detect the lint and flutter_lints dependencies
+automatically and highlights the problems
 
-It's also recommended to add `flutter analyze` to your
+It's also recommended to add `./ci -d dart analyze && ./ci -f flutter analyze` to your
 `.git/hooks/pre-commit` file, which will run the analysis before any
 commit.
 

@@ -1,17 +1,29 @@
 #!/bin/bash
 
 ROOT=$(pwd)
-command="$1 $2 $3 $4 $5 $6 $7"
 
-projects=(
+dart_projects=(
   "layers/domain"
-  "layers/localization"
   "layers/mobile_gateway"
   "layers/web_gateway"
+)
+flutter_projects=(
+  "layers/localization"
   "layers/mobile_presentation"
   "layers/web_presentation"
   "."
 )
+
+if [ "$1" = "--dart" ] || [ "$1" = "-d" ]; then
+  command="$2 $3 $4 $5 $6 $7"
+  projects=${dart_projects[*]}
+elif [ "$1" = "--flutter" ] || [ "$1" = "-f" ]; then
+  command="$2 $3 $4 $5 $6 $7"
+  projects=${flutter_projects[*]}
+else
+  command="$1 $2 $3 $4 $5 $6 $7"
+  projects=("${flutter_projects[@]} ${dart_projects[@]}")
+fi
 
 groupOperation() {
   for project in ${projects[*]}

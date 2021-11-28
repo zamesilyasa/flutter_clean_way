@@ -32,13 +32,13 @@ class MainScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text("The list is empty"),
+                      Text(Strings.of(context).usersListEmpty),
                       MaterialButton(
                         onPressed: () => Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const AddUserPage())),
-                        child: Text(AppStrings.of(context).addUser),
+                        child: Text(Strings.of(context).addUser),
                       )
                     ],
                   ),
@@ -51,8 +51,8 @@ class MainScreen extends StatelessWidget {
                 );
               }
             } else {
-              return const Center(
-                child: Text("Users loading error"),
+              return Center(
+                child: Text(Strings.of(context).usersLoadingError),
               );
             }
           },

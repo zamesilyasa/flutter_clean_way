@@ -16,6 +16,9 @@ dependencies:
   generic_blocs:
     path: ../generic_blocs
 
+  localization:
+    path: ../localization
+
   cupertino_icons: ^1.0.4
 
   bloc: ^7.2.1
