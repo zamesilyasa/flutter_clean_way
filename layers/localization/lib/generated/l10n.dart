@@ -169,6 +169,26 @@ class Strings {
       args: [],
     );
   }
+
+  /// `Users web page!`
+  String get usersWebPage {
+    return Intl.message(
+      'Users web page!',
+      name: 'usersWebPage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `N/A`
+  String get na {
+    return Intl.message(
+      'N/A',
+      name: 'na',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Strings> {

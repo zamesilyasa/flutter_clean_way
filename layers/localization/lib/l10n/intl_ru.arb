@@ -1,8 +1,17 @@
 {
     "@@locale": "ru",
-    "addUser": "Добавить Пользователя",
-    "@addUser": {
-        "type": "text",
-        "source_text": "addUser"
-    }
+    "usersTitle": "Пользователи",
+    "addUser": "Добавить пользователя",
+    "usersListEmpty": "Список пуст",
+    "addNewUser": "Добавить пользователя",
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "emailAddress": "эл. адресс",
+    "save": "Сохранить",
+    "emailAddressFormatError": "Формат эл. почты не верный",
+    "lastNameShouldNotBeEmpty": "Фамилия должна быть заполнена",
+    "firstNameShouldNotBeEmpty": "Имя должно быть заполнено",
+    "usersLoadingError": "Ошибка загрузки списка пользователя",
+    "usersWebPage": "Веб версия базы пользователей!",
+    "na": "N/A"
 }

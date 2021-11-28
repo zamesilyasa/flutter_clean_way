@@ -22,6 +22,26 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "addUser": MessageLookupByLibrary.simpleMessage("Добавить Пользователя")
+        "addNewUser":
+            MessageLookupByLibrary.simpleMessage("Добавить пользователя"),
+        "addUser":
+            MessageLookupByLibrary.simpleMessage("Добавить пользователя"),
+        "emailAddress": MessageLookupByLibrary.simpleMessage("эл. адресс"),
+        "emailAddressFormatError":
+            MessageLookupByLibrary.simpleMessage("Формат эл. почты не верный"),
+        "firstName": MessageLookupByLibrary.simpleMessage("Имя"),
+        "firstNameShouldNotBeEmpty":
+            MessageLookupByLibrary.simpleMessage("Имя должно быть заполнено"),
+        "lastName": MessageLookupByLibrary.simpleMessage("Фамилия"),
+        "lastNameShouldNotBeEmpty": MessageLookupByLibrary.simpleMessage(
+            "Фамилия должна быть заполнена"),
+        "na": MessageLookupByLibrary.simpleMessage("N/A"),
+        "save": MessageLookupByLibrary.simpleMessage("Сохранить"),
+        "usersListEmpty": MessageLookupByLibrary.simpleMessage("Список пуст"),
+        "usersLoadingError": MessageLookupByLibrary.simpleMessage(
+            "Ошибка загрузки списка пользователя"),
+        "usersTitle": MessageLookupByLibrary.simpleMessage("Пользователи"),
+        "usersWebPage": MessageLookupByLibrary.simpleMessage(
+            "Веб версия базы пользователей!")
       };
 }

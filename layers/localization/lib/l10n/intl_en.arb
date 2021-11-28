@@ -11,5 +11,7 @@
     "emailAddressFormatError": "Doesn't look like email address",
     "lastNameShouldNotBeEmpty": "Last name should not be empty",
     "firstNameShouldNotBeEmpty": "First name should not be empty",
-    "usersLoadingError": "Users loading error"
+    "usersLoadingError": "Users loading error",
+    "usersWebPage": "Users web page!",
+    "na": "N/A"
 }

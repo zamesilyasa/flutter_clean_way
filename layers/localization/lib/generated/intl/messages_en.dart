@@ -33,11 +33,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "lastName": MessageLookupByLibrary.simpleMessage("Last name"),
         "lastNameShouldNotBeEmpty": MessageLookupByLibrary.simpleMessage(
             "Last name should not be empty"),
+        "na": MessageLookupByLibrary.simpleMessage("N/A"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "usersListEmpty":
             MessageLookupByLibrary.simpleMessage("The list is empty"),
         "usersLoadingError":
             MessageLookupByLibrary.simpleMessage("Users loading error"),
-        "usersTitle": MessageLookupByLibrary.simpleMessage("Users")
+        "usersTitle": MessageLookupByLibrary.simpleMessage("Users"),
+        "usersWebPage": MessageLookupByLibrary.simpleMessage("Users web page!")
       };
 }

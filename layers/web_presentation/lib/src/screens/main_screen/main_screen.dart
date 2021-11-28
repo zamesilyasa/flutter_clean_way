@@ -2,6 +2,7 @@ import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:generic_blocs/generic_blocs.dart';
+import 'package:localization/generated/l10n.dart';
 import 'package:provider/provider.dart';
 import 'package:web_presentation/src/screens/add_user/add_user.dart';
 
@@ -16,8 +17,11 @@ class MainScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(32.0),
             child: Text(
-              "Users web page!",
-              style: Theme.of(context).textTheme.headline2!.copyWith(fontWeight: FontWeight.bold),
+              Strings.of(context).usersWebPage,
+              style: Theme.of(context)
+                  .textTheme
+                  .headline2!
+                  .copyWith(fontWeight: FontWeight.bold),
             ),
           ),
           BlocBuilder<UsersListBloc, UsersState>(
@@ -37,12 +41,12 @@ class MainScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text("The list is empty"),
+                        Text(Strings.of(context).usersListEmpty),
                         Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: ElevatedButton(
                               onPressed: () => showAddUserPage(context),
-                              child: const Text("add user")),
+                              child: Text(Strings.of(context).addUser)),
                         ),
                       ],
                     ),
@@ -52,25 +56,38 @@ class MainScreen extends StatelessWidget {
                     child: SingleChildScrollView(
                       child: DataTable(
                         columns: [
-                          DataColumn(label: Text(
-                              "email",
+                          DataColumn(
+                              label: Text(
+                            Strings.of(context).emailAddress,
                             style: Theme.of(context)
                                 .textTheme
                                 .subtitle1!
                                 .copyWith(fontWeight: FontWeight.bold),
                           )),
-                          DataColumn(label: Text("first name", style: Theme.of(context)
-                              .textTheme
-                              .subtitle1!
-                              .copyWith(fontWeight: FontWeight.bold),)),
-                          DataColumn(label: Text("last name", style: Theme.of(context)
-                              .textTheme
-                              .subtitle1!
-                              .copyWith(fontWeight: FontWeight.bold),)),
-                          DataColumn(label: Text("id", style: Theme.of(context)
-                              .textTheme
-                              .subtitle1!
-                              .copyWith(fontWeight: FontWeight.bold),)),
+                          DataColumn(
+                              label: Text(
+                            Strings.of(context).firstName,
+                            style: Theme.of(context)
+                                .textTheme
+                                .subtitle1!
+                                .copyWith(fontWeight: FontWeight.bold),
+                          )),
+                          DataColumn(
+                              label: Text(
+                            Strings.of(context).lastName,
+                            style: Theme.of(context)
+                                .textTheme
+                                .subtitle1!
+                                .copyWith(fontWeight: FontWeight.bold),
+                          )),
+                          DataColumn(
+                              label: Text(
+                            "id",
+                            style: Theme.of(context)
+                                .textTheme
+                                .subtitle1!
+                                .copyWith(fontWeight: FontWeight.bold),
+                          )),
                           const DataColumn(label: Text("")),
                         ],
                         rows: createTableRows(state.users, context),
@@ -79,8 +96,8 @@ class MainScreen extends StatelessWidget {
                   );
                 }
               } else {
-                return const Center(
-                  child: Text("Users loading error"),
+                return Center(
+                  child: Text(Strings.of(context).usersLoadingError),
                 );
               }
             },
@@ -96,7 +113,7 @@ class MainScreen extends StatelessWidget {
               DataCell(Text(user.email)),
               DataCell(Text(user.firstName)),
               DataCell(Text(user.lastName)),
-              DataCell(Text(user.id ?? "N/A")),
+              DataCell(Text(user.id ?? Strings.of(context).na)),
               DataCell(IconButton(
                 icon: const Icon(Icons.delete),
                 onPressed: () {
@@ -113,7 +130,7 @@ class MainScreen extends StatelessWidget {
       const DataCell(SizedBox()),
       DataCell(ElevatedButton(
           onPressed: () => showAddUserPage(context),
-          child: const Text("add user")))
+          child: Text(Strings.of(context).addUser)))
     ]));
 
     return rows;
@@ -121,10 +138,7 @@ class MainScreen extends StatelessWidget {
 
   showAddUserPage(BuildContext context) {
     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
-      showDialog(
-        context: context,
-        builder: (context) => const AddUserPage()
-      );
+      showDialog(context: context, builder: (context) => const AddUserPage());
     });
   }
 }

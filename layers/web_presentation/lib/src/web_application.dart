@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:generic_blocs/generic_blocs.dart';
 import 'package:get_it/get_it.dart';
+import 'package:localization/localization.dart';
 import 'package:provider/provider.dart';
 import 'package:web_presentation/src/screens/main_screen/main_screen.dart';
 
@@ -18,8 +19,10 @@ class WebApplication extends StatelessWidget {
         create: (context) => _getIt,
         child: SingletonBlocsProvider(
           getIt: _getIt,
-          child: const MaterialApp(
-            home: MainScreen(),
+          child: MaterialApp(
+            localizationsDelegates: Localization.localizationsDelegates,
+            supportedLocales: Localization.supportedLocales,
+            home: const MainScreen(),
           ),
         ));
   }
